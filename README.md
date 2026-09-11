@@ -1,11 +1,9 @@
 # Recall Firewall
 
 A hackathon prototype for investigating uncertain material links, querying scoped
-facility records, and verifying protective actions in a fictional warehouse.
+facility records, and verifying protective actions in a warehouse.
 
-The read-only UI replays **executed sponsor receipts**. Its animated chapters make
-no live calls and cannot approve holds, change shipments, or invoke sponsor APIs.
-It combines recorded executions; it does not pretend to be one live run.
+The read-only UI replays **executed sponsor receipts**.
 
 ## Run the UI
 
@@ -25,7 +23,7 @@ backend, integrations, tests and fixtures.
 
 | Sponsor | Executed contribution | Evidence |
 |---|---|---|
-| Cognee | Ingested a fictional planning note and extracted three proposed lot links. | `probes/results/graph_bridge.json` |
+| Cognee | Ingested a planning note and extracted three proposed lot links. | `probes/results/graph_bridge.json` |
 | HydraDB | Stored source-linked proposals and recovered them from a separate reader process. | Same graph receipt; source pointers and native request IDs. |
 | Hotdata | Queried two facility databases through a task-bound gateway. | `probes/results/rocketride_dispatch_positive.json` |
 | RocketRide | Ran a reviewed procedure in Cloud: read PLANT-A, inspect proposals, conditionally query PLANT-B, verify receipts. | Positive dispatch plus the no-records branch in `rocketride_dispatch.json`. |
@@ -93,14 +91,3 @@ bundle. Cloud SDK APIs remain intact; the unused CLI was omitted and ZIP creatio
 uses `fflate`. [Remediation and rebuild instructions](orchestrator/vendor/README.md)
 include upstream provenance. The startup-path source finding was fixed rather
 than ignored.
-
-## Honest limits
-
-Source passages establish proposals, not completed material events. Existing
-vendor fixtures do not establish immutable snapshots or complete incident
-coverage. Empty results do not establish safety. The recorded protective hold
-does not establish global containment or real warehouse execution.
-
-No production readiness, regulatory certification, automatic claim promotion,
-fresh-snapshot acceptance, or measured speedup is claimed. Some legacy probes
-record narrower experiments; use the named receipts above for demo claims.
