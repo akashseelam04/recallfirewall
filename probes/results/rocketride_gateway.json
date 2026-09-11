@@ -1,0 +1,25 @@
+{
+  "started_at": "2026-09-11T22:22:34.169Z",
+  "mode": "cloud_tool_connectivity",
+  "ingredient_id": "ING-041",
+  "success": true,
+  "raw_consumption": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"rows\": [{\"work_order_id\": \"WO-5512\", \"plant_id\": \"PLANT-A\", \"output_lot\": \"INT-1000\", \"input_lot\": \"RAW-8801\", \"ingredient_id\": \"ING-041\", \"qty_kg\": \"250.500\", \"completed_at\": \"2026-03-04\"}, {\"work_order_id\": \"WO-5513\", \"plant_id\": \"PLANT-A\", \"output_lot\": \"INT-1001\", \"input_lot\": \"RAW-8802\", \"ingredient_id\": \"ING-041\", \"qty_kg\": \"180.250\", \"completed_at\": \"2026-03-05\"}, {\"work_order_id\": \"WO-5515\", \"plant_id\": \"PLANT-A\", \"output_lot\": \"INT-1003\", \"input_lot\": \"RAW-8804\", \"ingredient_id\": \"ING-041\", \"qty_kg\": \"75.750\", \"completed_at\": \"2026-03-06\"}], \"query_run_id\": \"qrunhxah3ixwrpr2jvkk7khppnjg05\", \"result_sha256\": \"0b1036ffa9b79ef9229553e159e02bfcd3793b03f7d96671f7505930ff602e7d\", \"coverage\": {\"rows\": 3, \"delivery_complete\": true, \"complete\": false, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd\", \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"scope\": {\"facility_id\": \"PLANT-A\", \"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"table\": \"rf_plant_a_8g4i42.public.lot_consumption\", \"ingredient_id\": \"ING-041\", \"unit\": \"kg\"}}, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot\", \"arguments\": {\"ingredient_id\": \"ING-041\"}, \"receipt_id\": \"bc77c1be-74dc-41a0-930c-d0dee11f8901\", \"task_id\": \"plant-a-0594ada30f\", \"incident_id\": \"demo-0594ada30f\", \"facility_id\": \"PLANT-A\", \"scope_revision\": 1, \"input_epoch\": 1, \"knowledge_revision\": 0, \"role\": \"facility_investigator\", \"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"operation\": \"consumption_records_v1\", \"status\": \"INCOMPLETE\", \"client_started_at\": 1789165359.123411, \"client_ended_at\": 1789165359.3555782, \"admission_status\": \"CURRENT\"}"
+      }
+    ],
+    "isError": false
+  },
+  "raw_receipt": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"admission_status\": \"CURRENT\", \"arguments\": {\"ingredient_id\": \"ING-041\"}, \"client_ended_at\": 1789165359.3555782, \"client_started_at\": 1789165359.123411, \"coverage\": {\"complete\": false, \"delivery_complete\": true, \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"rows\": 3, \"scope\": {\"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"facility_id\": \"PLANT-A\", \"ingredient_id\": \"ING-041\", \"table\": \"rf_plant_a_8g4i42.public.lot_consumption\", \"unit\": \"kg\"}, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd\"}, \"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"facility_id\": \"PLANT-A\", \"incident_id\": \"demo-0594ada30f\", \"input_epoch\": 1, \"knowledge_revision\": 0, \"operation\": \"consumption_records_v1\", \"query_run_id\": \"qrunhxah3ixwrpr2jvkk7khppnjg05\", \"receipt_id\": \"bc77c1be-74dc-41a0-930c-d0dee11f8901\", \"result_sha256\": \"0b1036ffa9b79ef9229553e159e02bfcd3793b03f7d96671f7505930ff602e7d\", \"role\": \"facility_investigator\", \"rows\": [{\"completed_at\": \"2026-03-04\", \"ingredient_id\": \"ING-041\", \"input_lot\": \"RAW-8801\", \"output_lot\": \"INT-1000\", \"plant_id\": \"PLANT-A\", \"qty_kg\": \"250.500\", \"work_order_id\": \"WO-5512\"}, {\"completed_at\": \"2026-03-05\", \"ingredient_id\": \"ING-041\", \"input_lot\": \"RAW-8802\", \"output_lot\": \"INT-1001\", \"plant_id\": \"PLANT-A\", \"qty_kg\": \"180.250\", \"work_order_id\": \"WO-5513\"}, {\"completed_at\": \"2026-03-06\", \"ingredient_id\": \"ING-041\", \"input_lot\": \"RAW-8804\", \"output_lot\": \"INT-1003\", \"plant_id\": \"PLANT-A\", \"qty_kg\": \"75.750\", \"work_order_id\": \"WO-5515\"}], \"scope_revision\": 1, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot\", \"status\": \"INCOMPLETE\", \"task_id\": \"plant-a-0594ada30f\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"current_status\": \"CURRENT\"}"
+      }
+    ],
+    "isError": false
+  },
+  "ended_at": "2026-09-11T22:22:44.981Z"
+}

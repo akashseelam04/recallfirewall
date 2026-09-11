@@ -1,0 +1,24 @@
+{
+  "kind": "local_simulator_http_smoke",
+  "hold": {
+    "status": "HELD",
+    "shipment_id": "SHIP-DEMO-A",
+    "version": 2,
+    "approval_id": "6ca3ed55-d744-426e-893f-bdb646f56c3e",
+    "plan_hash": "3b5bfe17ec4b8b71f588c76d0935101bc7d3330deb2019be0694c91cbf83f0e4"
+  },
+  "read_back": {
+    "shipment_id": "SHIP-DEMO-A",
+    "incident_id": "demo-0594ada30f",
+    "facility_id": "PLANT-A",
+    "lot_id": "INT-1000",
+    "qty_kg": "25.100",
+    "transport_state": "STAGED",
+    "version": 2,
+    "held": 1
+  },
+  "departure_http": 409,
+  "departure": {
+    "detail": "DEPARTURE_BLOCKED: active protective hold"
+  }
+}

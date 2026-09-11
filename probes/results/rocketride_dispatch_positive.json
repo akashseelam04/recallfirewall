@@ -1,0 +1,156 @@
+{
+  "success": true,
+  "started_at": "2026-09-11T22:26:03.889Z",
+  "ingredient_id": "ING-041",
+  "response": {
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "timed_out": false,
+    "result": {
+      "status": "REVIEW_REQUIRED",
+      "execution": "ROCKETRIDE_CLOUD_FIXED_PROCEDURE",
+      "branch": "QUERY_PLANT_B",
+      "queried_facilities": [
+        "PLANT-A",
+        "PLANT-B"
+      ],
+      "matched_proposed_claim_ids": [
+        "claim-99c1f73709e36383faf9cd2c4e66437d639ec61e3b738318e60771a202040308"
+      ],
+      "findings": [
+        {
+          "rows": [
+            {
+              "work_order_id": "WO-5512",
+              "plant_id": "PLANT-A",
+              "output_lot": "INT-1000",
+              "input_lot": "RAW-8801",
+              "ingredient_id": "ING-041",
+              "qty_kg": "250.500",
+              "completed_at": "2026-03-04"
+            },
+            {
+              "work_order_id": "WO-5513",
+              "plant_id": "PLANT-A",
+              "output_lot": "INT-1001",
+              "input_lot": "RAW-8802",
+              "ingredient_id": "ING-041",
+              "qty_kg": "180.250",
+              "completed_at": "2026-03-05"
+            },
+            {
+              "work_order_id": "WO-5515",
+              "plant_id": "PLANT-A",
+              "output_lot": "INT-1003",
+              "input_lot": "RAW-8804",
+              "ingredient_id": "ING-041",
+              "qty_kg": "75.750",
+              "completed_at": "2026-03-06"
+            }
+          ],
+          "query_run_id": "qrunpgnkfv7zgmzqyojkpplpx178d7",
+          "result_sha256": "0b1036ffa9b79ef9229553e159e02bfcd3793b03f7d96671f7505930ff602e7d",
+          "coverage": {
+            "rows": 3,
+            "delivery_complete": true,
+            "complete": false,
+            "snapshot_or_revision": null,
+            "source_manifest_sha256": "fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd",
+            "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+            "scope": {
+              "facility_id": "PLANT-A",
+              "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+              "table": "rf_plant_a_8g4i42.public.lot_consumption",
+              "ingredient_id": "ING-041",
+              "unit": "kg"
+            }
+          },
+          "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot",
+          "arguments": {
+            "ingredient_id": "ING-041"
+          },
+          "receipt_id": "fb59cabf-8d69-4ca6-8538-ac0990ab8544",
+          "task_id": "plant-a-0594ada30f",
+          "incident_id": "demo-0594ada30f",
+          "facility_id": "PLANT-A",
+          "scope_revision": 1,
+          "input_epoch": 1,
+          "knowledge_revision": 0,
+          "role": "facility_investigator",
+          "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+          "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+          "operation": "consumption_records_v1",
+          "status": "INCOMPLETE",
+          "client_started_at": 1789165567.847531,
+          "client_ended_at": 1789165568.331944,
+          "admission_status": "CURRENT"
+        },
+        {
+          "rows": [
+            {
+              "work_order_id": "WO-7701",
+              "plant_id": "PLANT-B",
+              "output_lot": "INT-2000",
+              "input_lot": "RAW-9901",
+              "ingredient_id": "ING-041",
+              "qty_kg": "420.750",
+              "completed_at": "2026-03-06"
+            },
+            {
+              "work_order_id": "WO-7703",
+              "plant_id": "PLANT-B",
+              "output_lot": "INT-2002",
+              "input_lot": "RAW-9903",
+              "ingredient_id": "ING-041",
+              "qty_kg": "610.000",
+              "completed_at": "2026-03-08"
+            }
+          ],
+          "query_run_id": "qrunayccr9bdwfskkxxmx9lgtbmapa",
+          "result_sha256": "6ea47e0c11d88705cb6a99d50c80abde75802653247bb7d78e380ddcf07fe436",
+          "coverage": {
+            "rows": 2,
+            "delivery_complete": true,
+            "complete": false,
+            "snapshot_or_revision": null,
+            "source_manifest_sha256": "32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a",
+            "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+            "scope": {
+              "facility_id": "PLANT-B",
+              "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+              "table": "rf_plant_b_8g4i42.public.lot_consumption",
+              "ingredient_id": "ING-041",
+              "unit": "kg"
+            }
+          },
+          "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot",
+          "arguments": {
+            "ingredient_id": "ING-041"
+          },
+          "receipt_id": "18c94dce-a1d1-4bd0-af96-3b74f6cd0275",
+          "task_id": "plant-b-0594ada30f",
+          "incident_id": "demo-0594ada30f",
+          "facility_id": "PLANT-B",
+          "scope_revision": 1,
+          "input_epoch": 1,
+          "knowledge_revision": 0,
+          "role": "facility_investigator",
+          "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+          "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+          "operation": "consumption_records_v1",
+          "status": "INCOMPLETE",
+          "client_started_at": 1789165568.8555598,
+          "client_ended_at": 1789165568.993165,
+          "admission_status": "CURRENT"
+        }
+      ],
+      "next_action": "REQUEST_COMPLETION_RECORDS",
+      "gaps": [
+        "Proposed links do not establish completed material transfers.",
+        "Existing vendor snapshots do not establish complete incident coverage."
+      ]
+    }
+  },
+  "ended_at": "2026-09-11T22:26:14.661Z"
+}

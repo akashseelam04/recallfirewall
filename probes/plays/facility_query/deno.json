@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "__ROTE_PRESENTATION_SDK__": "file:///Users/akashseelam/.rote/lib/sdk/ts/presentation.ts"
+  }
+}

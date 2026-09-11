@@ -1,0 +1,1 @@
+{"answers":["{\"status\": \"REVIEW_REQUIRED\", \"queried_facilities\": [\"PLANT-A\", \"PLANT-B\"], \"receipt_ids\": [], \"next_action\": \"REQUEST_SOURCE_COVERAGE\", \"gaps\": [\"Tool failed: invalid arguments, stale task, missing receipt or sponsor failure.\"]}"],"name":"Question 1","path":"","result_types":{"answers":"answers"},"objectId":"ecbe44a8-fc58-5a88-a4eb-ef17ab1518f0"}

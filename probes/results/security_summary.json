@@ -1,0 +1,27 @@
+{
+  "started_at": 1789166747.70316,
+  "checks": {
+    "npm": {
+      "exit_code": 0,
+      "status": "PASSED",
+      "artifact": "probes/results/snyk_npm.json"
+    },
+    "python": {
+      "exit_code": 0,
+      "status": "PASSED",
+      "artifact": "probes/results/snyk_python.json"
+    },
+    "code": {
+      "exit_code": 0,
+      "status": "PASSED",
+      "artifact": "probes/results/snyk_code.json"
+    },
+    "ui_code": {
+      "exit_code": 0,
+      "status": "PASSED",
+      "artifact": "probes/results/snyk_ui_code.json"
+    }
+  },
+  "ended_at": 1789166803.359833,
+  "status": "PASSED"
+}

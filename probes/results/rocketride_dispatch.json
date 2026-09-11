@@ -1,0 +1,67 @@
+{
+  "success": true,
+  "started_at": "2026-09-11T22:27:02.367Z",
+  "ingredient_id": "ING-999",
+  "response": {
+    "stdout": "",
+    "stderr": "",
+    "exit_code": 0,
+    "timed_out": false,
+    "result": {
+      "status": "UNRESOLVED",
+      "execution": "ROCKETRIDE_CLOUD_FIXED_PROCEDURE",
+      "branch": "REQUEST_SOURCE_COVERAGE",
+      "queried_facilities": [
+        "PLANT-A"
+      ],
+      "matched_proposed_claim_ids": [],
+      "findings": [
+        {
+          "rows": [],
+          "query_run_id": "qrun4gzh4feya87mohas1nx1xos6c6",
+          "result_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+          "coverage": {
+            "rows": 0,
+            "delivery_complete": true,
+            "complete": false,
+            "snapshot_or_revision": null,
+            "source_manifest_sha256": "fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd",
+            "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+            "scope": {
+              "facility_id": "PLANT-A",
+              "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+              "table": "rf_plant_a_8g4i42.public.lot_consumption",
+              "ingredient_id": "ING-999",
+              "unit": "kg"
+            }
+          },
+          "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-999' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot",
+          "arguments": {
+            "ingredient_id": "ING-999"
+          },
+          "receipt_id": "e21d6dfe-acc1-4c63-a2b4-f47f062ed432",
+          "task_id": "plant-a-0594ada30f",
+          "incident_id": "demo-0594ada30f",
+          "facility_id": "PLANT-A",
+          "scope_revision": 1,
+          "input_epoch": 1,
+          "knowledge_revision": 0,
+          "role": "facility_investigator",
+          "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+          "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+          "operation": "consumption_records_v1",
+          "status": "INCOMPLETE",
+          "client_started_at": 1789165635.4094841,
+          "client_ended_at": 1789165635.604864,
+          "admission_status": "CURRENT"
+        }
+      ],
+      "next_action": "REQUEST_SOURCE_COVERAGE",
+      "gaps": [
+        "Proposed links do not establish completed material transfers.",
+        "Existing vendor snapshots do not establish complete incident coverage."
+      ]
+    }
+  },
+  "ended_at": "2026-09-11T22:27:21.274Z"
+}

@@ -1,0 +1,776 @@
+{
+  "mode": "live_parameterized_replay",
+  "runs": [
+    {
+      "run_id": "run_20260911_222148.074_14",
+      "status": "succeeded",
+      "complete": true,
+      "finding": {
+        "rows": [
+          {
+            "work_order_id": "WO-7701",
+            "plant_id": "PLANT-B",
+            "output_lot": "INT-2000",
+            "input_lot": "RAW-9901",
+            "ingredient_id": "ING-041",
+            "qty_kg": "420.750",
+            "completed_at": "2026-03-06"
+          },
+          {
+            "work_order_id": "WO-7703",
+            "plant_id": "PLANT-B",
+            "output_lot": "INT-2002",
+            "input_lot": "RAW-9903",
+            "ingredient_id": "ING-041",
+            "qty_kg": "610.000",
+            "completed_at": "2026-03-08"
+          }
+        ],
+        "query_run_id": "qrunuj6qj8j39vd4mv90rjwmg3iqtz",
+        "result_sha256": "6ea47e0c11d88705cb6a99d50c80abde75802653247bb7d78e380ddcf07fe436",
+        "coverage": {
+          "rows": 2,
+          "delivery_complete": true,
+          "complete": false,
+          "snapshot_or_revision": null,
+          "source_manifest_sha256": "32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a",
+          "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+          "scope": {
+            "facility_id": "PLANT-B",
+            "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+            "table": "rf_plant_b_8g4i42.public.lot_consumption",
+            "ingredient_id": "ING-041",
+            "unit": "kg"
+          }
+        },
+        "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot",
+        "arguments": {
+          "ingredient_id": "ING-041"
+        },
+        "receipt_id": "07ef2715-17af-46e7-985d-49b30fc5f513",
+        "task_id": "plant-b-0594ada30f",
+        "incident_id": "demo-0594ada30f",
+        "facility_id": "PLANT-B",
+        "scope_revision": 1,
+        "input_epoch": 1,
+        "knowledge_revision": 0,
+        "role": "facility_investigator",
+        "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+        "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+        "operation": "consumption_records_v1",
+        "status": "INCOMPLETE",
+        "client_started_at": 1789165308.121975,
+        "client_ended_at": 1789165308.383847,
+        "admission_status": "CURRENT"
+      },
+      "receipt_verified": true,
+      "steps": {
+        "python": {
+          "schema_version": 1,
+          "kind": "process.exec",
+          "invocation": {
+            "kind": "direct_argv",
+            "program": "/Users/akashseelam/Desktop/hackathon/.venv/bin/python",
+            "args": [
+              "/Users/akashseelam/Desktop/hackathon/probes/facility_query.py",
+              "consumption",
+              "--facility",
+              "PLANT-B",
+              "--ingredient",
+              "ING-041"
+            ],
+            "cwd": "/Users/akashseelam/.rote/workspaces/dag-facility_query-b9b65aa9",
+            "platform": {
+              "os": "macos",
+              "arch": "aarch64"
+            }
+          },
+          "env": {
+            "mode": "ambient",
+            "inherited_allowlist": [
+              "HOME",
+              "LANG",
+              "PATH",
+              "PWD",
+              "SHELL",
+              "TERM",
+              "USER",
+              "SSH_AUTH_SOCK"
+            ],
+            "redacted": []
+          },
+          "stdin": {
+            "kind": "none"
+          },
+          "status": {
+            "spawned": true,
+            "exit": {
+              "kind": "code",
+              "code": 0
+            },
+            "timed_out": false,
+            "duration_ms": 326,
+            "timeout_ms": 90000
+          },
+          "timeout": {
+            "kind": "request",
+            "timeout_ms": 90000,
+            "enforced": true
+          },
+          "stdout": {
+            "bytes": 1807,
+            "text": "{\"rows\": [{\"work_order_id\": \"WO-7701\", \"plant_id\": \"PLANT-B\", \"output_lot\": \"INT-2000\", \"input_lot\": \"RAW-9901\", \"ingredient_id\": \"ING-041\", \"qty_kg\": \"420.750\", \"completed_at\": \"2026-03-06\"}, {\"work_order_id\": \"WO-7703\", \"plant_id\": \"PLANT-B\", \"output_lot\": \"INT-2002\", \"input_lot\": \"RAW-9903\", \"ingredient_id\": \"ING-041\", \"qty_kg\": \"610.000\", \"completed_at\": \"2026-03-08\"}], \"query_run_id\": \"qrunuj6qj8j39vd4mv90rjwmg3iqtz\", \"result_sha256\": \"6ea47e0c11d88705cb6a99d50c80abde75802653247bb7d78e380ddcf07fe436\", \"coverage\": {\"rows\": 2, \"delivery_complete\": true, \"complete\": false, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a\", \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"scope\": {\"facility_id\": \"PLANT-B\", \"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"table\": \"rf_plant_b_8g4i42.public.lot_consumption\", \"ingredient_id\": \"ING-041\", \"unit\": \"kg\"}}, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot\", \"arguments\": {\"ingredient_id\": \"ING-041\"}, \"receipt_id\": \"07ef2715-17af-46e7-985d-49b30fc5f513\", \"task_id\": \"plant-b-0594ada30f\", \"incident_id\": \"demo-0594ada30f\", \"facility_id\": \"PLANT-B\", \"scope_revision\": 1, \"input_epoch\": 1, \"knowledge_revision\": 0, \"role\": \"facility_investigator\", \"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"operation\": \"consumption_records_v1\", \"status\": \"INCOMPLETE\", \"client_started_at\": 1789165308.121975, \"client_ended_at\": 1789165308.383847, \"admission_status\": \"CURRENT\"}\n",
+            "preview_bytes": 1807,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "1d00080332bd582c99352cb9651dce091db8a4f9cd0d707c6ebe69d3616de16f",
+            "artifact": {
+              "kind": "stream",
+              "label": "stdout",
+              "path": ".rote/artifacts/processes/@15/stdout.json",
+              "media_type": "application/json",
+              "bytes": 1807,
+              "sha256": "1d00080332bd582c99352cb9651dce091db8a4f9cd0d707c6ebe69d3616de16f"
+            },
+            "file": null
+          },
+          "stderr": {
+            "bytes": 0,
+            "text": "",
+            "preview_bytes": 0,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "artifact": {
+              "kind": "stream",
+              "label": "stderr",
+              "path": ".rote/artifacts/processes/@15/stderr.txt",
+              "media_type": "text/plain; charset=utf-8",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "file": null
+          },
+          "files": [],
+          "policy": {
+            "state": "evaluated",
+            "decision": "allowed",
+            "sandbox": {
+              "mode": "not_enforced",
+              "reason": "no active workspace sandbox marker was present"
+            },
+            "risk_tags": [],
+            "confirmations": [],
+            "redactions": [],
+            "warnings": []
+          }
+        },
+        "python_2": {
+          "schema_version": 1,
+          "kind": "process.exec",
+          "invocation": {
+            "kind": "direct_argv",
+            "program": "/Users/akashseelam/Desktop/hackathon/.venv/bin/python",
+            "args": [
+              "/Users/akashseelam/Desktop/hackathon/probes/facility_query.py",
+              "receipt",
+              "--facility",
+              "PLANT-B",
+              "--receipt-id",
+              "07ef2715-17af-46e7-985d-49b30fc5f513"
+            ],
+            "cwd": "/Users/akashseelam/.rote/workspaces/dag-facility_query-b9b65aa9",
+            "platform": {
+              "os": "macos",
+              "arch": "aarch64"
+            }
+          },
+          "env": {
+            "mode": "ambient",
+            "inherited_allowlist": [
+              "HOME",
+              "LANG",
+              "PATH",
+              "PWD",
+              "SHELL",
+              "TERM",
+              "USER",
+              "SSH_AUTH_SOCK"
+            ],
+            "redacted": []
+          },
+          "stdin": {
+            "kind": "none"
+          },
+          "status": {
+            "spawned": true,
+            "exit": {
+              "kind": "code",
+              "code": 0
+            },
+            "timed_out": false,
+            "duration_ms": 54,
+            "timeout_ms": 90000
+          },
+          "timeout": {
+            "kind": "request",
+            "timeout_ms": 90000,
+            "enforced": true
+          },
+          "stdout": {
+            "bytes": 1836,
+            "text": "{\"admission_status\": \"CURRENT\", \"arguments\": {\"ingredient_id\": \"ING-041\"}, \"client_ended_at\": 1789165308.383847, \"client_started_at\": 1789165308.121975, \"coverage\": {\"complete\": false, \"delivery_complete\": true, \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"rows\": 2, \"scope\": {\"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"facility_id\": \"PLANT-B\", \"ingredient_id\": \"ING-041\", \"table\": \"rf_plant_b_8g4i42.public.lot_consumption\", \"unit\": \"kg\"}, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a\"}, \"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"facility_id\": \"PLANT-B\", \"incident_id\": \"demo-0594ada30f\", \"input_epoch\": 1, \"knowledge_revision\": 0, \"operation\": \"consumption_records_v1\", \"query_run_id\": \"qrunuj6qj8j39vd4mv90rjwmg3iqtz\", \"receipt_id\": \"07ef2715-17af-46e7-985d-49b30fc5f513\", \"result_sha256\": \"6ea47e0c11d88705cb6a99d50c80abde75802653247bb7d78e380ddcf07fe436\", \"role\": \"facility_investigator\", \"rows\": [{\"completed_at\": \"2026-03-06\", \"ingredient_id\": \"ING-041\", \"input_lot\": \"RAW-9901\", \"output_lot\": \"INT-2000\", \"plant_id\": \"PLANT-B\", \"qty_kg\": \"420.750\", \"work_order_id\": \"WO-7701\"}, {\"completed_at\": \"2026-03-08\", \"ingredient_id\": \"ING-041\", \"input_lot\": \"RAW-9903\", \"output_lot\": \"INT-2002\", \"plant_id\": \"PLANT-B\", \"qty_kg\": \"610.000\", \"work_order_id\": \"WO-7703\"}], \"scope_revision\": 1, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot\", \"status\": \"INCOMPLETE\", \"task_id\": \"plant-b-0594ada30f\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"current_status\": \"CURRENT\"}\n",
+            "preview_bytes": 1836,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "8516b75633aa8c3327584ff23d0a8ea8c0eaa0dc6dc628422027b5a83edd6a6f",
+            "artifact": {
+              "kind": "stream",
+              "label": "stdout",
+              "path": ".rote/artifacts/processes/@16/stdout.json",
+              "media_type": "application/json",
+              "bytes": 1836,
+              "sha256": "8516b75633aa8c3327584ff23d0a8ea8c0eaa0dc6dc628422027b5a83edd6a6f"
+            },
+            "file": null
+          },
+          "stderr": {
+            "bytes": 0,
+            "text": "",
+            "preview_bytes": 0,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "artifact": {
+              "kind": "stream",
+              "label": "stderr",
+              "path": ".rote/artifacts/processes/@16/stderr.txt",
+              "media_type": "text/plain; charset=utf-8",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "file": null
+          },
+          "files": [],
+          "policy": {
+            "state": "evaluated",
+            "decision": "allowed",
+            "sandbox": {
+              "mode": "not_enforced",
+              "reason": "no active workspace sandbox marker was present"
+            },
+            "risk_tags": [],
+            "confirmations": [],
+            "redactions": [],
+            "warnings": []
+          }
+        }
+      }
+    },
+    {
+      "run_id": "run_20260911_222148.563_16",
+      "status": "succeeded",
+      "complete": true,
+      "finding": {
+        "rows": [
+          {
+            "work_order_id": "WO-5516",
+            "plant_id": "PLANT-A",
+            "output_lot": "INT-1004",
+            "input_lot": "RAW-8805",
+            "ingredient_id": "ING-112",
+            "qty_kg": "410.000",
+            "completed_at": "2026-03-07"
+          }
+        ],
+        "query_run_id": "qrunynnlrsqpxszvsvdsnslmmolzjs",
+        "result_sha256": "909bcb9ff9383e3a23a14e152cd2ba02693b12ffdc34380d922981240c1ea774",
+        "coverage": {
+          "rows": 1,
+          "delivery_complete": true,
+          "complete": false,
+          "snapshot_or_revision": null,
+          "source_manifest_sha256": "fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd",
+          "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+          "scope": {
+            "facility_id": "PLANT-A",
+            "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+            "table": "rf_plant_a_8g4i42.public.lot_consumption",
+            "ingredient_id": "ING-112",
+            "unit": "kg"
+          }
+        },
+        "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-112' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot",
+        "arguments": {
+          "ingredient_id": "ING-112"
+        },
+        "receipt_id": "0ec7f66f-b862-4372-b054-5dbcd46270f5",
+        "task_id": "plant-a-0594ada30f",
+        "incident_id": "demo-0594ada30f",
+        "facility_id": "PLANT-A",
+        "scope_revision": 1,
+        "input_epoch": 1,
+        "knowledge_revision": 0,
+        "role": "facility_investigator",
+        "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+        "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+        "operation": "consumption_records_v1",
+        "status": "INCOMPLETE",
+        "client_started_at": 1789165308.609332,
+        "client_ended_at": 1789165308.752085,
+        "admission_status": "CURRENT"
+      },
+      "receipt_verified": true,
+      "steps": {
+        "python": {
+          "schema_version": 1,
+          "kind": "process.exec",
+          "invocation": {
+            "kind": "direct_argv",
+            "program": "/Users/akashseelam/Desktop/hackathon/.venv/bin/python",
+            "args": [
+              "/Users/akashseelam/Desktop/hackathon/probes/facility_query.py",
+              "consumption",
+              "--facility",
+              "PLANT-A",
+              "--ingredient",
+              "ING-112"
+            ],
+            "cwd": "/Users/akashseelam/.rote/workspaces/dag-facility_query-b9b65aa9",
+            "platform": {
+              "os": "macos",
+              "arch": "aarch64"
+            }
+          },
+          "env": {
+            "mode": "ambient",
+            "inherited_allowlist": [
+              "HOME",
+              "LANG",
+              "PATH",
+              "PWD",
+              "SHELL",
+              "TERM",
+              "USER",
+              "SSH_AUTH_SOCK"
+            ],
+            "redacted": []
+          },
+          "stdin": {
+            "kind": "none"
+          },
+          "status": {
+            "spawned": true,
+            "exit": {
+              "kind": "code",
+              "code": 0
+            },
+            "timed_out": false,
+            "duration_ms": 196,
+            "timeout_ms": 90000
+          },
+          "timeout": {
+            "kind": "request",
+            "timeout_ms": 90000,
+            "enforced": true
+          },
+          "stdout": {
+            "bytes": 1624,
+            "text": "{\"rows\": [{\"work_order_id\": \"WO-5516\", \"plant_id\": \"PLANT-A\", \"output_lot\": \"INT-1004\", \"input_lot\": \"RAW-8805\", \"ingredient_id\": \"ING-112\", \"qty_kg\": \"410.000\", \"completed_at\": \"2026-03-07\"}], \"query_run_id\": \"qrunynnlrsqpxszvsvdsnslmmolzjs\", \"result_sha256\": \"909bcb9ff9383e3a23a14e152cd2ba02693b12ffdc34380d922981240c1ea774\", \"coverage\": {\"rows\": 1, \"delivery_complete\": true, \"complete\": false, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd\", \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"scope\": {\"facility_id\": \"PLANT-A\", \"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"table\": \"rf_plant_a_8g4i42.public.lot_consumption\", \"ingredient_id\": \"ING-112\", \"unit\": \"kg\"}}, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-112' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot\", \"arguments\": {\"ingredient_id\": \"ING-112\"}, \"receipt_id\": \"0ec7f66f-b862-4372-b054-5dbcd46270f5\", \"task_id\": \"plant-a-0594ada30f\", \"incident_id\": \"demo-0594ada30f\", \"facility_id\": \"PLANT-A\", \"scope_revision\": 1, \"input_epoch\": 1, \"knowledge_revision\": 0, \"role\": \"facility_investigator\", \"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"operation\": \"consumption_records_v1\", \"status\": \"INCOMPLETE\", \"client_started_at\": 1789165308.609332, \"client_ended_at\": 1789165308.752085, \"admission_status\": \"CURRENT\"}\n",
+            "preview_bytes": 1624,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "d71082fe86c5d132b2c0b97fb470a3d2f8b1c8040e899e4fbb8f963edc8f564f",
+            "artifact": {
+              "kind": "stream",
+              "label": "stdout",
+              "path": ".rote/artifacts/processes/@17/stdout.json",
+              "media_type": "application/json",
+              "bytes": 1624,
+              "sha256": "d71082fe86c5d132b2c0b97fb470a3d2f8b1c8040e899e4fbb8f963edc8f564f"
+            },
+            "file": null
+          },
+          "stderr": {
+            "bytes": 0,
+            "text": "",
+            "preview_bytes": 0,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "artifact": {
+              "kind": "stream",
+              "label": "stderr",
+              "path": ".rote/artifacts/processes/@17/stderr.txt",
+              "media_type": "text/plain; charset=utf-8",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "file": null
+          },
+          "files": [],
+          "policy": {
+            "state": "evaluated",
+            "decision": "allowed",
+            "sandbox": {
+              "mode": "not_enforced",
+              "reason": "no active workspace sandbox marker was present"
+            },
+            "risk_tags": [],
+            "confirmations": [],
+            "redactions": [],
+            "warnings": []
+          }
+        },
+        "python_2": {
+          "schema_version": 1,
+          "kind": "process.exec",
+          "invocation": {
+            "kind": "direct_argv",
+            "program": "/Users/akashseelam/Desktop/hackathon/.venv/bin/python",
+            "args": [
+              "/Users/akashseelam/Desktop/hackathon/probes/facility_query.py",
+              "receipt",
+              "--facility",
+              "PLANT-A",
+              "--receipt-id",
+              "0ec7f66f-b862-4372-b054-5dbcd46270f5"
+            ],
+            "cwd": "/Users/akashseelam/.rote/workspaces/dag-facility_query-b9b65aa9",
+            "platform": {
+              "os": "macos",
+              "arch": "aarch64"
+            }
+          },
+          "env": {
+            "mode": "ambient",
+            "inherited_allowlist": [
+              "HOME",
+              "LANG",
+              "PATH",
+              "PWD",
+              "SHELL",
+              "TERM",
+              "USER",
+              "SSH_AUTH_SOCK"
+            ],
+            "redacted": []
+          },
+          "stdin": {
+            "kind": "none"
+          },
+          "status": {
+            "spawned": true,
+            "exit": {
+              "kind": "code",
+              "code": 0
+            },
+            "timed_out": false,
+            "duration_ms": 58,
+            "timeout_ms": 90000
+          },
+          "timeout": {
+            "kind": "request",
+            "timeout_ms": 90000,
+            "enforced": true
+          },
+          "stdout": {
+            "bytes": 1653,
+            "text": "{\"admission_status\": \"CURRENT\", \"arguments\": {\"ingredient_id\": \"ING-112\"}, \"client_ended_at\": 1789165308.752085, \"client_started_at\": 1789165308.609332, \"coverage\": {\"complete\": false, \"delivery_complete\": true, \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"rows\": 1, \"scope\": {\"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"facility_id\": \"PLANT-A\", \"ingredient_id\": \"ING-112\", \"table\": \"rf_plant_a_8g4i42.public.lot_consumption\", \"unit\": \"kg\"}, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd\"}, \"database_id\": \"dbidjps0n11vjay3m0asui84xazh9k\", \"facility_id\": \"PLANT-A\", \"incident_id\": \"demo-0594ada30f\", \"input_epoch\": 1, \"knowledge_revision\": 0, \"operation\": \"consumption_records_v1\", \"query_run_id\": \"qrunynnlrsqpxszvsvdsnslmmolzjs\", \"receipt_id\": \"0ec7f66f-b862-4372-b054-5dbcd46270f5\", \"result_sha256\": \"909bcb9ff9383e3a23a14e152cd2ba02693b12ffdc34380d922981240c1ea774\", \"role\": \"facility_investigator\", \"rows\": [{\"completed_at\": \"2026-03-07\", \"ingredient_id\": \"ING-112\", \"input_lot\": \"RAW-8805\", \"output_lot\": \"INT-1004\", \"plant_id\": \"PLANT-A\", \"qty_kg\": \"410.000\", \"work_order_id\": \"WO-5516\"}], \"scope_revision\": 1, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-112' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot\", \"status\": \"INCOMPLETE\", \"task_id\": \"plant-a-0594ada30f\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"current_status\": \"CURRENT\"}\n",
+            "preview_bytes": 1653,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "50399a113faf7fa9718f1518f46939f62246cb96680ae4ef33a28ca4a8bd4a4c",
+            "artifact": {
+              "kind": "stream",
+              "label": "stdout",
+              "path": ".rote/artifacts/processes/@18/stdout.json",
+              "media_type": "application/json",
+              "bytes": 1653,
+              "sha256": "50399a113faf7fa9718f1518f46939f62246cb96680ae4ef33a28ca4a8bd4a4c"
+            },
+            "file": null
+          },
+          "stderr": {
+            "bytes": 0,
+            "text": "",
+            "preview_bytes": 0,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "artifact": {
+              "kind": "stream",
+              "label": "stderr",
+              "path": ".rote/artifacts/processes/@18/stderr.txt",
+              "media_type": "text/plain; charset=utf-8",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "file": null
+          },
+          "files": [],
+          "policy": {
+            "state": "evaluated",
+            "decision": "allowed",
+            "sandbox": {
+              "mode": "not_enforced",
+              "reason": "no active workspace sandbox marker was present"
+            },
+            "risk_tags": [],
+            "confirmations": [],
+            "redactions": [],
+            "warnings": []
+          }
+        }
+      }
+    },
+    {
+      "run_id": "run_20260911_222148.921_18",
+      "status": "succeeded",
+      "complete": true,
+      "finding": {
+        "rows": [],
+        "query_run_id": "qrunz6ol3skqp2w3za9h9nncbcv7zs",
+        "result_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "coverage": {
+          "rows": 0,
+          "delivery_complete": true,
+          "complete": false,
+          "snapshot_or_revision": null,
+          "source_manifest_sha256": "32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a",
+          "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+          "scope": {
+            "facility_id": "PLANT-B",
+            "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+            "table": "rf_plant_b_8g4i42.public.lot_consumption",
+            "ingredient_id": "ING-999",
+            "unit": "kg"
+          }
+        },
+        "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-999' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot",
+        "arguments": {
+          "ingredient_id": "ING-999"
+        },
+        "receipt_id": "f08b5647-6eba-44cc-ad78-fb396a134ac5",
+        "task_id": "plant-b-0594ada30f",
+        "incident_id": "demo-0594ada30f",
+        "facility_id": "PLANT-B",
+        "scope_revision": 1,
+        "input_epoch": 1,
+        "knowledge_revision": 0,
+        "role": "facility_investigator",
+        "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+        "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+        "operation": "consumption_records_v1",
+        "status": "INCOMPLETE",
+        "client_started_at": 1789165308.966891,
+        "client_ended_at": 1789165309.093714,
+        "admission_status": "CURRENT"
+      },
+      "receipt_verified": true,
+      "steps": {
+        "python": {
+          "schema_version": 1,
+          "kind": "process.exec",
+          "invocation": {
+            "kind": "direct_argv",
+            "program": "/Users/akashseelam/Desktop/hackathon/.venv/bin/python",
+            "args": [
+              "/Users/akashseelam/Desktop/hackathon/probes/facility_query.py",
+              "consumption",
+              "--facility",
+              "PLANT-B",
+              "--ingredient",
+              "ING-999"
+            ],
+            "cwd": "/Users/akashseelam/.rote/workspaces/dag-facility_query-b9b65aa9",
+            "platform": {
+              "os": "macos",
+              "arch": "aarch64"
+            }
+          },
+          "env": {
+            "mode": "ambient",
+            "inherited_allowlist": [
+              "HOME",
+              "LANG",
+              "PATH",
+              "PWD",
+              "SHELL",
+              "TERM",
+              "USER",
+              "SSH_AUTH_SOCK"
+            ],
+            "redacted": []
+          },
+          "stdin": {
+            "kind": "none"
+          },
+          "status": {
+            "spawned": true,
+            "exit": {
+              "kind": "code",
+              "code": 0
+            },
+            "timed_out": false,
+            "duration_ms": 183,
+            "timeout_ms": 90000
+          },
+          "timeout": {
+            "kind": "request",
+            "timeout_ms": 90000,
+            "enforced": true
+          },
+          "stdout": {
+            "bytes": 1443,
+            "text": "{\"rows\": [], \"query_run_id\": \"qrunz6ol3skqp2w3za9h9nncbcv7zs\", \"result_sha256\": \"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\", \"coverage\": {\"rows\": 0, \"delivery_complete\": true, \"complete\": false, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a\", \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"scope\": {\"facility_id\": \"PLANT-B\", \"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"table\": \"rf_plant_b_8g4i42.public.lot_consumption\", \"ingredient_id\": \"ING-999\", \"unit\": \"kg\"}}, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-999' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot\", \"arguments\": {\"ingredient_id\": \"ING-999\"}, \"receipt_id\": \"f08b5647-6eba-44cc-ad78-fb396a134ac5\", \"task_id\": \"plant-b-0594ada30f\", \"incident_id\": \"demo-0594ada30f\", \"facility_id\": \"PLANT-B\", \"scope_revision\": 1, \"input_epoch\": 1, \"knowledge_revision\": 0, \"role\": \"facility_investigator\", \"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"operation\": \"consumption_records_v1\", \"status\": \"INCOMPLETE\", \"client_started_at\": 1789165308.966891, \"client_ended_at\": 1789165309.093714, \"admission_status\": \"CURRENT\"}\n",
+            "preview_bytes": 1443,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "4dfd17ab9573b4519ae479257353a536f3a34c333674373c8bf3387a85ffd317",
+            "artifact": {
+              "kind": "stream",
+              "label": "stdout",
+              "path": ".rote/artifacts/processes/@19/stdout.json",
+              "media_type": "application/json",
+              "bytes": 1443,
+              "sha256": "4dfd17ab9573b4519ae479257353a536f3a34c333674373c8bf3387a85ffd317"
+            },
+            "file": null
+          },
+          "stderr": {
+            "bytes": 0,
+            "text": "",
+            "preview_bytes": 0,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "artifact": {
+              "kind": "stream",
+              "label": "stderr",
+              "path": ".rote/artifacts/processes/@19/stderr.txt",
+              "media_type": "text/plain; charset=utf-8",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "file": null
+          },
+          "files": [],
+          "policy": {
+            "state": "evaluated",
+            "decision": "allowed",
+            "sandbox": {
+              "mode": "not_enforced",
+              "reason": "no active workspace sandbox marker was present"
+            },
+            "risk_tags": [],
+            "confirmations": [],
+            "redactions": [],
+            "warnings": []
+          }
+        },
+        "python_2": {
+          "schema_version": 1,
+          "kind": "process.exec",
+          "invocation": {
+            "kind": "direct_argv",
+            "program": "/Users/akashseelam/Desktop/hackathon/.venv/bin/python",
+            "args": [
+              "/Users/akashseelam/Desktop/hackathon/probes/facility_query.py",
+              "receipt",
+              "--facility",
+              "PLANT-B",
+              "--receipt-id",
+              "f08b5647-6eba-44cc-ad78-fb396a134ac5"
+            ],
+            "cwd": "/Users/akashseelam/.rote/workspaces/dag-facility_query-b9b65aa9",
+            "platform": {
+              "os": "macos",
+              "arch": "aarch64"
+            }
+          },
+          "env": {
+            "mode": "ambient",
+            "inherited_allowlist": [
+              "HOME",
+              "LANG",
+              "PATH",
+              "PWD",
+              "SHELL",
+              "TERM",
+              "USER",
+              "SSH_AUTH_SOCK"
+            ],
+            "redacted": []
+          },
+          "stdin": {
+            "kind": "none"
+          },
+          "status": {
+            "spawned": true,
+            "exit": {
+              "kind": "code",
+              "code": 0
+            },
+            "timed_out": false,
+            "duration_ms": 54,
+            "timeout_ms": 90000
+          },
+          "timeout": {
+            "kind": "request",
+            "timeout_ms": 90000,
+            "enforced": true
+          },
+          "stdout": {
+            "bytes": 1472,
+            "text": "{\"admission_status\": \"CURRENT\", \"arguments\": {\"ingredient_id\": \"ING-999\"}, \"client_ended_at\": 1789165309.093714, \"client_started_at\": 1789165308.966891, \"coverage\": {\"complete\": false, \"delivery_complete\": true, \"incomplete_reason\": \"immutable_vendor_snapshot_not_proven\", \"rows\": 0, \"scope\": {\"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"facility_id\": \"PLANT-B\", \"ingredient_id\": \"ING-999\", \"table\": \"rf_plant_b_8g4i42.public.lot_consumption\", \"unit\": \"kg\"}, \"snapshot_or_revision\": null, \"source_manifest_sha256\": \"32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a\"}, \"database_id\": \"dbiday3wgs1w5ggd5isn1fmnz5lqkf\", \"facility_id\": \"PLANT-B\", \"incident_id\": \"demo-0594ada30f\", \"input_epoch\": 1, \"knowledge_revision\": 0, \"operation\": \"consumption_records_v1\", \"query_run_id\": \"qrunz6ol3skqp2w3za9h9nncbcv7zs\", \"receipt_id\": \"f08b5647-6eba-44cc-ad78-fb396a134ac5\", \"result_sha256\": \"4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945\", \"role\": \"facility_investigator\", \"rows\": [], \"scope_revision\": 1, \"sql\": \"SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-999' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot\", \"status\": \"INCOMPLETE\", \"task_id\": \"plant-b-0594ada30f\", \"workspace_id\": \"workjtyq38oc9fwowtl6s8g4i42jne\", \"current_status\": \"CURRENT\"}\n",
+            "preview_bytes": 1472,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "918f512b56f65ffc69fc642b63c254b13b8007ae5ced0225c5231fd672725e41",
+            "artifact": {
+              "kind": "stream",
+              "label": "stdout",
+              "path": ".rote/artifacts/processes/@20/stdout.json",
+              "media_type": "application/json",
+              "bytes": 1472,
+              "sha256": "918f512b56f65ffc69fc642b63c254b13b8007ae5ced0225c5231fd672725e41"
+            },
+            "file": null
+          },
+          "stderr": {
+            "bytes": 0,
+            "text": "",
+            "preview_bytes": 0,
+            "truncated": false,
+            "encoding": "utf8",
+            "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+            "artifact": {
+              "kind": "stream",
+              "label": "stderr",
+              "path": ".rote/artifacts/processes/@20/stderr.txt",
+              "media_type": "text/plain; charset=utf-8",
+              "bytes": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            "file": null
+          },
+          "files": [],
+          "policy": {
+            "state": "evaluated",
+            "decision": "allowed",
+            "sandbox": {
+              "mode": "not_enforced",
+              "reason": "no active workspace sandbox marker was present"
+            },
+            "risk_tags": [],
+            "confirmations": [],
+            "redactions": [],
+            "warnings": []
+          }
+        }
+      }
+    }
+  ],
+  "limitation": "Existing vendor fixture databases; fresh task snapshots and full AC-13 are not proved"
+}

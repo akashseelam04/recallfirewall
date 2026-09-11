@@ -1,0 +1,374 @@
+{
+  "source": {
+    "source_id": "NOTE-DEMO-001",
+    "source_version": "1",
+    "text": "Planning note, PLANT-A. Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B. Batch INT-2000 may supply lot INT-2002. Lot INT-2002 may be repacked as lot CASE-DEMO. These are proposals only; no completed transfer or consumption records for these links are available.",
+    "effective_at": "2026-09-11T00:00:00Z",
+    "received_at": "2026-09-11T22:21:19.406593+00:00"
+  },
+  "cognee": {
+    "dataset": "rf_bridge_32b6f194b7da",
+    "text": "Planning note, PLANT-A. Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B. Batch INT-2000 may supply lot INT-2002. Lot INT-2002 may be repacked as lot CASE-DEMO. These are proposals only; no completed transfer or consumption records for these links are available.",
+    "add": {
+      "status": "PipelineRunCompleted",
+      "pipeline_run_id": "c7f13238-39af-4a4c-ae7a-17c62195c5ca",
+      "dataset_id": "f01a42f1-fbe3-5203-864c-0fff125d8ecb",
+      "dataset_name": "rf_bridge_32b6f194b7da",
+      "payload": null,
+      "data_ingestion_info": [
+        {
+          "run_info": {
+            "status": "PipelineRunCompleted",
+            "pipeline_run_id": "c7f13238-39af-4a4c-ae7a-17c62195c5ca",
+            "dataset_id": "f01a42f1-fbe3-5203-864c-0fff125d8ecb",
+            "dataset_name": "rf_bridge_32b6f194b7da",
+            "payload": null,
+            "data_ingestion_info": null
+          },
+          "data_id": "1241b210-d539-4fc2-b441-516a913b4bc4"
+        }
+      ]
+    },
+    "cognify": {
+      "f01a42f1-fbe3-5203-864c-0fff125d8ecb": {
+        "status": "PipelineRunStarted",
+        "pipeline_run_id": "80fbb6b5-5ba6-41e2-8d25-e8c44ce3f732",
+        "dataset_id": "f01a42f1-fbe3-5203-864c-0fff125d8ecb",
+        "dataset_name": "rf_bridge_32b6f194b7da",
+        "payload": [],
+        "data_ingestion_info": null
+      }
+    },
+    "status": "DATASET_PROCESSING_COMPLETED",
+    "search": [
+      {
+        "dataset_id": "f01a42f1-fbe3-5203-864c-0fff125d8ecb",
+        "dataset_name": "rf_bridge_32b6f194b7da",
+        "dataset_tenant_id": "775723ec-0975-47a9-aa52-8889551baa61",
+        "search_result": [
+          "{\n  \"candidates\": [\n    {\n      \"input_lot\": \"INT-1000\",\n      \"output_lot\": \"INT-2000\",\n      \"quote\": \"Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B.\"\n    },\n    {\n      \"input_lot\": \"INT-2000\",\n      \"output_lot\": \"INT-2002\",\n      \"quote\": \"Batch INT-2000 may supply lot INT-2002.\"\n    },\n    {\n      \"input_lot\": \"INT-2002\",\n      \"output_lot\": \"CASE-DEMO\",\n      \"quote\": \"Lot INT-2002 may be repacked as lot CASE-DEMO.\"\n    }\n  ]\n}"
+        ]
+      }
+    ]
+  },
+  "source_bindings": [
+    {
+      "input_lot": "INT-1000",
+      "output_lot": "INT-2000",
+      "generated_quote_replaced": false
+    },
+    {
+      "input_lot": "INT-2000",
+      "output_lot": "INT-2002",
+      "generated_quote_replaced": false
+    },
+    {
+      "input_lot": "INT-2002",
+      "output_lot": "CASE-DEMO",
+      "generated_quote_replaced": false
+    }
+  ],
+  "extraction_mode": "fresh_live",
+  "publication": {
+    "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+    "manifest_sha256": "9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d14cbb9800",
+    "claim_count": 3
+  },
+  "write_receipt": {
+    "rows": [
+      {
+        "written": 3
+      }
+    ],
+    "native_meta": {
+      "request_id": "2b00d36d-fe13-406d-8c6d-6b14b7ad3d74",
+      "api_version": "2.0.1",
+      "latency_ms": 59.6,
+      "tenant_id": "gate0probe",
+      "database": "gate0probe"
+    },
+    "database": "gate0probe",
+    "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+    "query": "UNWIND $claims AS row\nMERGE (source:Lot {lot_id: row.input_lot})\nMERGE (target:Lot {lot_id: row.output_lot})\nMERGE (source)-[claim:PROPOSED_INPUT {claim_id: row.claim_id}]->(target)\nSET claim.claim_json = row.claim_json\nRETURN count(claim) AS written",
+    "parameters": {
+      "claims": [
+        {
+          "claim_id": "claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf",
+          "input_lot": "INT-2002",
+          "output_lot": "CASE-DEMO",
+          "claim_json": "{\"claim_id\": \"claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-2002\", \"output_lot\": \"CASE-DEMO\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Lot INT-2002 may be repacked as lot CASE-DEMO.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 175, \"kind\": \"text_span\", \"start\": 129, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+        },
+        {
+          "claim_id": "claim-7a3549f8a52f182565aa6d344a9e01fbe83aed2fdc7f26c91b4fa2cd278722b2",
+          "input_lot": "INT-2000",
+          "output_lot": "INT-2002",
+          "claim_json": "{\"claim_id\": \"claim-7a3549f8a52f182565aa6d344a9e01fbe83aed2fdc7f26c91b4fa2cd278722b2\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-2000\", \"output_lot\": \"INT-2002\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Batch INT-2000 may supply lot INT-2002.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 128, \"kind\": \"text_span\", \"start\": 89, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+        },
+        {
+          "claim_id": "claim-99c1f73709e36383faf9cd2c4e66437d639ec61e3b738318e60771a202040308",
+          "input_lot": "INT-1000",
+          "output_lot": "INT-2000",
+          "claim_json": "{\"claim_id\": \"claim-99c1f73709e36383faf9cd2c4e66437d639ec61e3b738318e60771a202040308\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-1000\", \"output_lot\": \"INT-2000\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 88, \"kind\": \"text_span\", \"start\": 24, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+        }
+      ]
+    }
+  },
+  "read": {
+    "claims": [
+      {
+        "claim_id": "claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf",
+        "input_lot": "INT-2002",
+        "output_lot": "CASE-DEMO",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Lot INT-2002 may be repacked as lot CASE-DEMO.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 129,
+            "end": 175
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      },
+      {
+        "claim_id": "claim-7a3549f8a52f182565aa6d344a9e01fbe83aed2fdc7f26c91b4fa2cd278722b2",
+        "input_lot": "INT-2000",
+        "output_lot": "INT-2002",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Batch INT-2000 may supply lot INT-2002.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 89,
+            "end": 128
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      },
+      {
+        "claim_id": "claim-99c1f73709e36383faf9cd2c4e66437d639ec61e3b738318e60771a202040308",
+        "input_lot": "INT-1000",
+        "output_lot": "INT-2000",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 24,
+            "end": 88
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      }
+    ],
+    "receipts": [
+      {
+        "rows": [
+          {
+            "claim_json": "{\"claim_id\": \"claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-2002\", \"output_lot\": \"CASE-DEMO\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Lot INT-2002 may be repacked as lot CASE-DEMO.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 175, \"kind\": \"text_span\", \"start\": 129, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+          }
+        ],
+        "native_meta": {
+          "request_id": "225b052a-414e-47a5-9f7f-ad1a2ee68bbb",
+          "api_version": "2.0.1",
+          "latency_ms": 65.5,
+          "tenant_id": "gate0probe",
+          "database": "gate0probe"
+        },
+        "database": "gate0probe",
+        "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+        "query": "MATCH ()-[claim:PROPOSED_INPUT]->()\nRETURN claim.claim_json AS claim_json\nORDER BY claim.claim_id SKIP $offset LIMIT $limit",
+        "parameters": {
+          "offset": 0,
+          "limit": 1
+        }
+      },
+      {
+        "rows": [
+          {
+            "claim_json": "{\"claim_id\": \"claim-7a3549f8a52f182565aa6d344a9e01fbe83aed2fdc7f26c91b4fa2cd278722b2\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-2000\", \"output_lot\": \"INT-2002\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Batch INT-2000 may supply lot INT-2002.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 128, \"kind\": \"text_span\", \"start\": 89, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+          }
+        ],
+        "native_meta": {
+          "request_id": "c15a20ca-1726-46a0-bfa0-981907d6f82e",
+          "api_version": "2.0.1",
+          "latency_ms": 139.1,
+          "tenant_id": "gate0probe",
+          "database": "gate0probe"
+        },
+        "database": "gate0probe",
+        "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+        "query": "MATCH ()-[claim:PROPOSED_INPUT]->()\nRETURN claim.claim_json AS claim_json\nORDER BY claim.claim_id SKIP $offset LIMIT $limit",
+        "parameters": {
+          "offset": 1,
+          "limit": 1
+        }
+      },
+      {
+        "rows": [
+          {
+            "claim_json": "{\"claim_id\": \"claim-99c1f73709e36383faf9cd2c4e66437d639ec61e3b738318e60771a202040308\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-1000\", \"output_lot\": \"INT-2000\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 88, \"kind\": \"text_span\", \"start\": 24, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+          }
+        ],
+        "native_meta": {
+          "request_id": "b6640214-2710-4674-bac2-9d7e0eb6012d",
+          "api_version": "2.0.1",
+          "latency_ms": 57.7,
+          "tenant_id": "gate0probe",
+          "database": "gate0probe"
+        },
+        "database": "gate0probe",
+        "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+        "query": "MATCH ()-[claim:PROPOSED_INPUT]->()\nRETURN claim.claim_json AS claim_json\nORDER BY claim.claim_id SKIP $offset LIMIT $limit",
+        "parameters": {
+          "offset": 2,
+          "limit": 1
+        }
+      }
+    ],
+    "coverage": {
+      "rows": 3,
+      "scope": {
+        "database": "gate0probe",
+        "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1"
+      },
+      "manifest_sha256": "9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d14cbb9800",
+      "delivery_complete": true,
+      "complete": false,
+      "snapshot_or_revision": null,
+      "incomplete_reason": "incident_revision_not_committed"
+    }
+  },
+  "candidate_paths": {
+    "rows": [
+      {
+        "lot_id": "CASE-DEMO"
+      },
+      {
+        "lot_id": "INT-2000"
+      },
+      {
+        "lot_id": "INT-2002"
+      }
+    ],
+    "receipt": {
+      "rows": [
+        {
+          "lot_id": "CASE-DEMO"
+        },
+        {
+          "lot_id": "INT-2000"
+        },
+        {
+          "lot_id": "INT-2002"
+        }
+      ],
+      "native_meta": {
+        "request_id": "5d8defc6-6be0-4dac-b95e-b9f8185473c4",
+        "api_version": "2.0.1",
+        "latency_ms": 97.1,
+        "tenant_id": "gate0probe",
+        "database": "gate0probe"
+      },
+      "database": "gate0probe",
+      "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+      "query": "MATCH (root:Lot {lot_id: $root})-[:PROPOSED_INPUT*1..3]->(target:Lot)\nRETURN DISTINCT target.lot_id AS lot_id ORDER BY lot_id LIMIT 100",
+      "parameters": {
+        "root": "INT-1000"
+      }
+    },
+    "status": "PROPOSED",
+    "coverage": {
+      "complete": false,
+      "incomplete_reason": "depth_3_and_row_100_budget"
+    }
+  },
+  "budget_limited_read": {
+    "claims": [
+      {
+        "claim_id": "claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf",
+        "input_lot": "INT-2002",
+        "output_lot": "CASE-DEMO",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Lot INT-2002 may be repacked as lot CASE-DEMO.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 129,
+            "end": 175
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      }
+    ],
+    "receipts": [
+      {
+        "rows": [
+          {
+            "claim_json": "{\"claim_id\": \"claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf\", \"extraction_receipt_sha256\": \"648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01\", \"input_lot\": \"INT-2002\", \"output_lot\": \"CASE-DEMO\", \"predicate\": \"PROPOSED_INPUT_TO\", \"quote\": \"Lot INT-2002 may be repacked as lot CASE-DEMO.\", \"source\": {\"content_sha256\": \"ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377\", \"effective_at\": \"2026-09-11T00:00:00Z\", \"locator\": {\"end\": 175, \"kind\": \"text_span\", \"start\": 129, \"unit\": \"unicode_codepoint\"}, \"received_at\": \"2026-09-11T22:21:19.406593+00:00\", \"source_id\": \"NOTE-DEMO-001\", \"source_version\": \"1\"}, \"status\": \"PROPOSED\", \"validation_basis\": \"EXACT_SOURCE_SPAN_ONLY\"}"
+          }
+        ],
+        "native_meta": {
+          "request_id": "6b3d2dde-4469-4b36-bfb7-94ffd687dfe9",
+          "api_version": "2.0.1",
+          "latency_ms": 55.8,
+          "tenant_id": "gate0probe",
+          "database": "gate0probe"
+        },
+        "database": "gate0probe",
+        "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1",
+        "query": "MATCH ()-[claim:PROPOSED_INPUT]->()\nRETURN claim.claim_json AS claim_json\nORDER BY claim.claim_id SKIP $offset LIMIT $limit",
+        "parameters": {
+          "offset": 0,
+          "limit": 1
+        }
+      }
+    ],
+    "coverage": {
+      "rows": 1,
+      "scope": {
+        "database": "gate0probe",
+        "collection": "rf_9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d1"
+      },
+      "manifest_sha256": "9c8f9cde2db641227fccd91c4ae4fcee8e3f2263f832600b09be60d14cbb9800",
+      "delivery_complete": false,
+      "complete": false,
+      "snapshot_or_revision": null,
+      "incomplete_reason": "page_budget_exhausted"
+    }
+  },
+  "expected_fixture_paths_found": true,
+  "gate_0": "OPEN: completed-event validation, committed incident revision and remaining sponsor handoffs pending"
+}

@@ -1,0 +1,280 @@
+{
+  "started_at": 1789165279.2721422,
+  "status": "BLOCKED",
+  "synthetic": true,
+  "stages": {
+    "cognee_hydradb": {
+      "status": "PASSED",
+      "started_at": 1789165279.272449,
+      "exit_code": 0,
+      "artifact": "probes/results/graph_bridge.json",
+      "ended_at": 1789165308.026366
+    },
+    "rocketride": {
+      "status": "BLOCKED",
+      "reason": "Requires successful graph handoff and --cloud with an approved GATEWAY_PUBLIC_URL; agent mode also needs model credits"
+    },
+    "rote_hotdata": {
+      "status": "PASSED",
+      "started_at": 1789165308.0270798,
+      "exit_code": 0,
+      "artifact": "probes/results/rote_facility.json",
+      "ended_at": 1789165309.2474968
+    }
+  },
+  "finding_status": "UNRESOLVED",
+  "approval": "LOCAL_OPERATOR_REQUIRED",
+  "evidence": {
+    "source": {
+      "source_id": "NOTE-DEMO-001",
+      "source_version": "1",
+      "text": "Planning note, PLANT-A. Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B. Batch INT-2000 may supply lot INT-2002. Lot INT-2002 may be repacked as lot CASE-DEMO. These are proposals only; no completed transfer or consumption records for these links are available.",
+      "effective_at": "2026-09-11T00:00:00Z",
+      "received_at": "2026-09-11T22:21:19.406593+00:00"
+    },
+    "claims": [
+      {
+        "claim_id": "claim-36a18c787078b780387f83073d0f2b560dd2f25be686c6eb36ac2db1c3306aaf",
+        "input_lot": "INT-2002",
+        "output_lot": "CASE-DEMO",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Lot INT-2002 may be repacked as lot CASE-DEMO.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 129,
+            "end": 175
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      },
+      {
+        "claim_id": "claim-7a3549f8a52f182565aa6d344a9e01fbe83aed2fdc7f26c91b4fa2cd278722b2",
+        "input_lot": "INT-2000",
+        "output_lot": "INT-2002",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Batch INT-2000 may supply lot INT-2002.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 89,
+            "end": 128
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      },
+      {
+        "claim_id": "claim-99c1f73709e36383faf9cd2c4e66437d639ec61e3b738318e60771a202040308",
+        "input_lot": "INT-1000",
+        "output_lot": "INT-2000",
+        "predicate": "PROPOSED_INPUT_TO",
+        "status": "PROPOSED",
+        "validation_basis": "EXACT_SOURCE_SPAN_ONLY",
+        "quote": "Retained lot INT-1000 may be added to batch INT-2000 at PLANT-B.",
+        "source": {
+          "source_id": "NOTE-DEMO-001",
+          "source_version": "1",
+          "content_sha256": "ee3612e9b820699b51b438ba9e9f8aaf1fbc27822499e8550587dbfb449b6377",
+          "locator": {
+            "kind": "text_span",
+            "unit": "unicode_codepoint",
+            "start": 24,
+            "end": 88
+          },
+          "effective_at": "2026-09-11T00:00:00Z",
+          "received_at": "2026-09-11T22:21:19.406593+00:00"
+        },
+        "extraction_receipt_sha256": "648b27b99e6a0a7eafb5510d2e5c24699be2796f44db3c1fc111ecf77de50d01"
+      }
+    ],
+    "candidate_paths": [
+      {
+        "lot_id": "CASE-DEMO"
+      },
+      {
+        "lot_id": "INT-2000"
+      },
+      {
+        "lot_id": "INT-2002"
+      }
+    ]
+  },
+  "replays": [
+    {
+      "run_id": "run_20260911_222148.074_14",
+      "finding": {
+        "rows": [
+          {
+            "work_order_id": "WO-7701",
+            "plant_id": "PLANT-B",
+            "output_lot": "INT-2000",
+            "input_lot": "RAW-9901",
+            "ingredient_id": "ING-041",
+            "qty_kg": "420.750",
+            "completed_at": "2026-03-06"
+          },
+          {
+            "work_order_id": "WO-7703",
+            "plant_id": "PLANT-B",
+            "output_lot": "INT-2002",
+            "input_lot": "RAW-9903",
+            "ingredient_id": "ING-041",
+            "qty_kg": "610.000",
+            "completed_at": "2026-03-08"
+          }
+        ],
+        "query_run_id": "qrunuj6qj8j39vd4mv90rjwmg3iqtz",
+        "result_sha256": "6ea47e0c11d88705cb6a99d50c80abde75802653247bb7d78e380ddcf07fe436",
+        "coverage": {
+          "rows": 2,
+          "delivery_complete": true,
+          "complete": false,
+          "snapshot_or_revision": null,
+          "source_manifest_sha256": "32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a",
+          "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+          "scope": {
+            "facility_id": "PLANT-B",
+            "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+            "table": "rf_plant_b_8g4i42.public.lot_consumption",
+            "ingredient_id": "ING-041",
+            "unit": "kg"
+          }
+        },
+        "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-041' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot",
+        "arguments": {
+          "ingredient_id": "ING-041"
+        },
+        "receipt_id": "07ef2715-17af-46e7-985d-49b30fc5f513",
+        "task_id": "plant-b-0594ada30f",
+        "incident_id": "demo-0594ada30f",
+        "facility_id": "PLANT-B",
+        "scope_revision": 1,
+        "input_epoch": 1,
+        "knowledge_revision": 0,
+        "role": "facility_investigator",
+        "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+        "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+        "operation": "consumption_records_v1",
+        "status": "INCOMPLETE",
+        "client_started_at": 1789165308.121975,
+        "client_ended_at": 1789165308.383847,
+        "admission_status": "CURRENT"
+      },
+      "receipt_verified": true
+    },
+    {
+      "run_id": "run_20260911_222148.563_16",
+      "finding": {
+        "rows": [
+          {
+            "work_order_id": "WO-5516",
+            "plant_id": "PLANT-A",
+            "output_lot": "INT-1004",
+            "input_lot": "RAW-8805",
+            "ingredient_id": "ING-112",
+            "qty_kg": "410.000",
+            "completed_at": "2026-03-07"
+          }
+        ],
+        "query_run_id": "qrunynnlrsqpxszvsvdsnslmmolzjs",
+        "result_sha256": "909bcb9ff9383e3a23a14e152cd2ba02693b12ffdc34380d922981240c1ea774",
+        "coverage": {
+          "rows": 1,
+          "delivery_complete": true,
+          "complete": false,
+          "snapshot_or_revision": null,
+          "source_manifest_sha256": "fefbf81e08bff04f4f0c000d8d2c4a4a086e1f47cdc7c64ec8e1ddbb63cfcecd",
+          "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+          "scope": {
+            "facility_id": "PLANT-A",
+            "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+            "table": "rf_plant_a_8g4i42.public.lot_consumption",
+            "ingredient_id": "ING-112",
+            "unit": "kg"
+          }
+        },
+        "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_a_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-112' AND plant_id = 'PLANT-A' ORDER BY work_order_id, output_lot, input_lot",
+        "arguments": {
+          "ingredient_id": "ING-112"
+        },
+        "receipt_id": "0ec7f66f-b862-4372-b054-5dbcd46270f5",
+        "task_id": "plant-a-0594ada30f",
+        "incident_id": "demo-0594ada30f",
+        "facility_id": "PLANT-A",
+        "scope_revision": 1,
+        "input_epoch": 1,
+        "knowledge_revision": 0,
+        "role": "facility_investigator",
+        "database_id": "dbidjps0n11vjay3m0asui84xazh9k",
+        "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+        "operation": "consumption_records_v1",
+        "status": "INCOMPLETE",
+        "client_started_at": 1789165308.609332,
+        "client_ended_at": 1789165308.752085,
+        "admission_status": "CURRENT"
+      },
+      "receipt_verified": true
+    },
+    {
+      "run_id": "run_20260911_222148.921_18",
+      "finding": {
+        "rows": [],
+        "query_run_id": "qrunz6ol3skqp2w3za9h9nncbcv7zs",
+        "result_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+        "coverage": {
+          "rows": 0,
+          "delivery_complete": true,
+          "complete": false,
+          "snapshot_or_revision": null,
+          "source_manifest_sha256": "32dd0d9b0d061d492815f3b24cb9e28420f755a48fce90ed84087d31d11e922a",
+          "incomplete_reason": "immutable_vendor_snapshot_not_proven",
+          "scope": {
+            "facility_id": "PLANT-B",
+            "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+            "table": "rf_plant_b_8g4i42.public.lot_consumption",
+            "ingredient_id": "ING-999",
+            "unit": "kg"
+          }
+        },
+        "sql": "SELECT work_order_id, plant_id, output_lot, input_lot, ingredient_id, CAST(CAST(qty_kg AS DECIMAL(18,3)) AS VARCHAR) AS qty_kg, completed_at FROM rf_plant_b_8g4i42.public.lot_consumption WHERE ingredient_id = 'ING-999' AND plant_id = 'PLANT-B' ORDER BY work_order_id, output_lot, input_lot",
+        "arguments": {
+          "ingredient_id": "ING-999"
+        },
+        "receipt_id": "f08b5647-6eba-44cc-ad78-fb396a134ac5",
+        "task_id": "plant-b-0594ada30f",
+        "incident_id": "demo-0594ada30f",
+        "facility_id": "PLANT-B",
+        "scope_revision": 1,
+        "input_epoch": 1,
+        "knowledge_revision": 0,
+        "role": "facility_investigator",
+        "database_id": "dbiday3wgs1w5ggd5isn1fmnz5lqkf",
+        "workspace_id": "workjtyq38oc9fwowtl6s8g4i42jne",
+        "operation": "consumption_records_v1",
+        "status": "INCOMPLETE",
+        "client_started_at": 1789165308.966891,
+        "client_ended_at": 1789165309.093714,
+        "admission_status": "CURRENT"
+      },
+      "receipt_verified": true
+    }
+  ],
+  "limitation": "Component success is not full acceptance: graph links remain proposals; human approval and hold verification are separate; existing vendor fixture databases are reused.",
+  "ended_at": 1789165309.248275
+}

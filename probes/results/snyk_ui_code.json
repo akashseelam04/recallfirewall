@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/errata01/os/schemas/sarif-schema-2.1.0.json",
+  "version": "2.1.0",
+  "runs": [
+    {
+      "tool": {
+        "driver": {
+          "name": "SnykCode",
+          "semanticVersion": "1.1307.2",
+          "version": "1.1307.2",
+          "informationUri": "https://docs.snyk.io/",
+          "rules": []
+        }
+      },
+      "results": [],
+      "properties": {
+        "coverage": [
+          {
+            "files": 2,
+            "isSupported": true,
+            "lang": ".html",
+            "type": "SUPPORTED"
+          },
+          {
+            "files": 2,
+            "isSupported": true,
+            "lang": ".js",
+            "type": "SUPPORTED"
+          }
+        ]
+      },
+      "automationDetails": {
+        "id": "Snyk/Code/2026-09-11T22:46:42Z"
+      }
+    }
+  ]
+}

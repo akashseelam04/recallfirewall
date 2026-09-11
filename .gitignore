@@ -1,0 +1,15 @@
+.rocketride/
+.env
+.venv/
+__pycache__/
+node_modules/
+.cognee_system/
+.DS_Store
+
+.demo/
+.publish/
+.vercel/
+memory.md
+AGENTS.md
+SPEC.md
+reviews/
